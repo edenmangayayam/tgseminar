@@ -1,6 +1,7 @@
 ///<reference path='../libs/DefinitelyTyped/angularjs/angular.d.ts' />
 
 ///<reference path='../Model.ts' />
+///<reference path='../Service.ts' />
 
 module Todo {
         export interface Scope extends ng.IScope{
@@ -14,7 +15,7 @@ module Todo {
 
     }
         export class Controller{
-            constructor(public $scope:Scope){
+            constructor(public $scope:Scope, public todoService:Service.TodoService){
                 this.$scope.todos = [
                      new Model.Todo("Hello")
                 ];
@@ -25,6 +26,12 @@ module Todo {
 
                 this.$scope.remove = (index) => this.remove(index);
                 this.$scope.modify = (index, newValue) => this.modify(index, newValue);
+
+                this.todoService.getList()
+                    .success((todos:Model.Todo[]) => {
+                        this.$scope.todos = todos;
+
+                });
 
             }
 
@@ -42,5 +49,8 @@ module Todo {
                 this.$scope.todos[index] = new Model.Todo(modifiedValue);
             }}
 
+            modifu(index : number):void{
+            //     var newContent = this.window.prompt("test", this.$scope)
 
+            }
 }
