@@ -33,5 +33,31 @@
     </p>
 </script>
 
+<div ng-controller="TodoController">
+    TODO List
+
+    <input type="text" ng-model="newContent" placeholder="TODO?">
+    <button ng-click="add()">Add Todo!</button>
+
+    <div ng-show="todos.length == 0">
+        TODO is nothing.
+    </div>
+
+    <div>
+        <li ng-repeat="todo in todos">
+            {{$index + 1}}
+            {{todo.content}}
+            <input type="text" ng-model="newValue" placeholder="NewValue">
+            <button ng-click="remove($index)">Delete</button>
+            <button ng-click="modify($index, newValue)">Modify</button>
+    </div>
+    </li>
+</div>
+
+
+
+</div>
+
+
 </body>
 </html>

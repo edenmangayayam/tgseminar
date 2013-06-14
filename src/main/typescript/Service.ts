@@ -53,8 +53,7 @@ module Module {
 		()=> {
 		}
 	)
-		.controller("SampleTestController", Sample.TestController)
-	;
+		.controller("TodoController", Todo.Controller)
 
 	// モジュールの定義。directiveに関するモジュール。
 	angular.module(
