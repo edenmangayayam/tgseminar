@@ -49,6 +49,7 @@ public class ListController extends Controller {
 			map.put("id", entity.getKey().getId());
 			map.put("createdBy", entity.getProperty("createdBy"));
 			map.put("createdAt", entity.getProperty("createdAt"));
+			map.put("title", entity.getProperty("title"));
 			entitiesForJSON.add(map);
 			
 		}

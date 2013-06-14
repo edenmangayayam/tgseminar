@@ -46,7 +46,10 @@
     <div>
         <li ng-repeat="todo in todos">
             {{$index + 1}}
-            {{todo.content}}
+            {{todo.ID}}
+            {{todo.title}}
+            {{todo.createdAt}}
+
             <input type="text" ng-model="newValue" placeholder="NewValue">
             <button ng-click="remove($index)">Delete</button>
             <button ng-click="modify($index, newValue)">Modify</button>
