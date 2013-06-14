@@ -28,4 +28,32 @@ public class UpdateControllerTest extends ControllerTestCase {
 		
 	}
 
+	@Test
+	public void idIsNotNumeric() throws NullPointerException, 
+		IllegalArgumentException, IOException, ServletException{
+		
+		tester.param("id", "hai");
+		tester.param("title", "To-Do #1");
+		tester.start("/Update");
+		
+		//assert response from server is 400
+		
+		assertThat(tester.response.getStatus(), is(400));
+		
+	}
+
+	@Test
+	public void titleIsNotSpecified() throws NullPointerException, 
+		IllegalArgumentException, IOException, ServletException{
+		
+		tester.param("id", "1");
+		//tester.param("title", "To-Do #1");
+		tester.start("/Update");
+		
+		//assert response from server is 400
+		
+		assertThat(tester.response.getStatus(), is(400));
+		
+	}
+
 }
